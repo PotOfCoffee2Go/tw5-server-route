@@ -1,5 +1,5 @@
-created: 20250811152333559
-modified: 20250811152333559
+created: 20250812041803012
+modified: 20250812041803012
 title: Server Tiddler #1
 
 Server added this tiddler
@@ -12,7 +12,7 @@ Server added this tiddler
     "route": "my-route",
     "topic": "resetTiddlers",
     "filter": "[[]]",
-    "sender": "git-server"
+    "sender": "tw5-server-route"
   },
   "tiddlerFromServer": "Server Tiddler #1"
 }

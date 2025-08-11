@@ -1,0 +1,80 @@
+created: 20250810034229836
+modified: 20250812042542671
+tags: 
+title: tw5-server-route
+type: text/vnd.tiddlywiki
+
+<style>
+.col3 { column-count:3; }
+</style>
+
+!!! Implement a custom WebServer route
+
+<div style="text-align:center;opacity:.6;index:100;margin-top:-5.5em;">
+<$image source="$:/favicon.ico" width="64px"/>
+<br><br>
+</div>
+
+This is a working TiddlyWiki example of adding a custom server request to [[TiddlyWiki on Node.js|https://tiddlywiki.com/static/TiddlyWiki%2520on%2520Node.js.html]] 'server' edition.  It uses the HTTP connection that is established by [[WebServer|https://tiddlywiki.com/static/WebServer.html]] to route the request to the server. Two TW5 JavaScript tiddlers do the work - client-side is a @@.mono-m module-type:macro@@  while the server-side uses a @@.mono-m module-type:route@@. 
+
+<details style=""><summary>@@color:#cc99ff; Technical Info!@@</summary>
+
+<blockquote>
+This project assumes you are a TW5 JavaScript developer familiar with TW5 JavaScript @@.mono-m macro@@ and @@.mono-m route@@ module-types. However, is a working system that is relatively easy to modify, so a good place to learn about TiddlyWiki modules!
+</blockquote>
+
+<span style="margin-left:1.5em;">Note that...</span>
+
+<blockquote>
+No TiddlyWiki $:/core tiddlers were harmed in making of @@.mono-m tw5-server-route@@.<br>
+It @@color:aqua; relies@@ on Webserver, Filesystem, TiddlyWeb, adaptors, syncer, etc. to all run as designed @@.mono-q out-of-the-box@@.
+</blockquote>
+
+<hr class="poc2go-hr">
+</details>
+
+The modules (tiddlers) are used as templates when need a TW5 client to make requests to be performed by the Node.js server. The name of the route is used to automatically create a macro which accesses the server. '@@.mono-m my-route@@' is the current route name.
+
+To see @@.mono-m my-route@@ in action (press the 'Send' button multiple times):
+
+<$details summary="WikiText of the Buttons">
+
+```
+<$button actions=<<my-route my-topic "[tag[unused]]">> >
+Send @@.mono-m my-route@@ request
+</$button>
+
+<$button actions=<<my-route resetTiddlers>> >
+Send @@.mono-m my-route@@ reset request
+</$button>
+```
+
+</$details>
+
+<$button actions=<<my-route my-topic "[tag[unused]]">> >
+Send @@.mono-m my-route@@ request
+</$button>
+&nbsp;
+<$button actions=<<my-route resetTiddlers>> >
+Send @@.mono-m my-route@@ reset request
+</$button>
+
+<<list-links filter:"[prefix[Server Tiddler]sort[created]]" emptyMessage:" (No Server Tiddlers)" class:"col3">>
+
+Server-side the request creates/updates this wiki with tiddlers that show the values given in the request. The title of the tiddlers increments by one. The counter can be reset which deletes the previous tiddlers created and resets the creation of tiddlers. 
+
+<$details summary="Server Tiddlers are created server-side!">
+
+The request and server processing are working templates designed as a foundation to build upon. Demonstrates sending a request, server creates/adds a tiddler to the wiki showing values received, and the  @@.mono-m $tw.syncer.syncFromServer()@@ function is called to have  WebServer do it's magic to retrieve tiddler(s) client-side that the server has created. 
+
+<hr class="poc2go-hr">
+</$details>
+
+The tiddlers that implement the @@.mono-m my-route@@ server route are:
+
+@@.mono
+Client-side macro [[$:/poc2go/macros/custom/server/request.js]]<br>
+Server-side route [[$:/poc2go/modules/custom/server/route.js]]
+@@
+
+These tiddlers are a starting framework to develop your own server requests. Copy (TW clone)  them and change @@.mono-m const route = 'my-route';@@ to the name you wish to use as a route @@color:red;in BOTH tiddlers@@ to create a new request/route.

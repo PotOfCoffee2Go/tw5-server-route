@@ -1,0 +1,22 @@
+{
+  "name": "@PotOfCoffee2Go/tw5-server-route",
+  "version": "1.0.0",
+  "description": "Add custom server route to TiddlyWiki",
+  "main": "tiddlywiki.info",
+  "scripts": {
+    "start": "tiddlywiki . --listen port=8080",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PotOfCoffee2Go/tw5-server-route.git"
+  },
+  "keywords": ['TiddlyWiki'],
+  "author": "PotOfCoffee2Go",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/PotOfCoffee2Go/tw5-server-route/issues"
+  },
+  "homepage": "https://github.com/PotOfCoffee2Go/tw5-server-route#readme"
+}
