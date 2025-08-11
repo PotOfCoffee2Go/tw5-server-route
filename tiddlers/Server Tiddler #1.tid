@@ -1,0 +1,20 @@
+created: 20250811152333559
+modified: 20250811152333559
+title: Server Tiddler #1
+
+Server added this tiddler
+
+@@color:aqua; Request #1@@
+
+```json
+{
+  "urlValues": {
+    "route": "my-route",
+    "topic": "resetTiddlers",
+    "filter": "[[]]",
+    "sender": "git-server"
+  },
+  "tiddlerFromServer": "Server Tiddler #1"
+}
+```
+
